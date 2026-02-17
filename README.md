@@ -13,17 +13,21 @@ Esta skill permite a tu Agente analizar transcripciones de procesos y generar di
 
 Puedes instalar esta skill directamente usando `npx` (una vez publicado en npm) o ejecutándolo localmente.
 
-### Opción 1: Ejecución Local
-Descarga este repositorio y ejecuta:
+### Opción 1: Ejecución Directa (Recomendado)
+Puedes instalar y ejecutar la skill directamente desde GitHub sin clonar nada:
 
 ```bash
-npm install
-node install.js
+npx github:JefferCB1/Skill_solutechIA
 ```
 
-### Opción 2: NPX (Si se publica)
+### Opción 2: Instalación Manual
+Si prefieres tener el código fuente:
+
 ```bash
-npx workflow-analyst-installer
+git clone https://github.com/JefferCB1/Skill_solutechIA.git
+cd Skill_solutechIA
+npm install
+node install.js
 ```
 
 ## Requisitos
