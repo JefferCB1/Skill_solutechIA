@@ -141,8 +141,10 @@ graph LR
 \`\`\`
 
 Acción Final
-1. Llama a \`mcp_mermaid_generate_mermaid_diagram\` con el código generado para entregar el archivo visual al usuario.
-2. Una vez generado el diagrama, EJECUTA el script:
+Acción Final
+1. Llama a \`mcp_mermaid_generate_mermaid_diagram\` con \`outputType: "file"\`.
+2. El tool devolverá una ruta de archivo temporal. MUEVE ese archivo a la carpeta \`diagrams/\` del proyecto con un nombre descriptivo (ej: \`diagrams/proceso_cobranza.png\`).
+3. Una vez guardado el archivo, EJECUTA el script para crear el enlace editable:
    \`${nodeCommand}\`
    (asegúrate de escapar las comillas del código).
 
