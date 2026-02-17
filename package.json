@@ -1,0 +1,17 @@
+{
+    "name": "workflow-analyst-installer",
+    "version": "1.0.0",
+    "description": "Installer for the Workflow Analyst Skill",
+    "main": "install.js",
+    "bin": {
+        "install-workflow-analyst": "./install.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Wikyn",
+    "license": "ISC",
+    "dependencies": {
+        "shelljs": "^0.8.5"
+    }
+}
