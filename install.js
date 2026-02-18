@@ -9,7 +9,8 @@ const os = require('os');
 const SKILL_NAME = 'workflow-analyst';
 const ICONS_FILES = [
     'aws-architecture-icons.excalidrawlib',
-    'system-design.excalidrawlib'
+    'system-design.excalidrawlib',
+    'architecture-diagram-components.excalidrawlib'
 ];
 // Target: .agent/skills/workflow-analyst
 const SKILL_DIR = path.join(process.cwd(), '.agent', 'skills', SKILL_NAME);
@@ -113,6 +114,7 @@ Eres un Arquitecto de Soluciones de Automatización y CRM. Tu trabajo es analiza
 Tienes disponibles las siguientes librerías de iconos:
 - \`aws-architecture-icons.excalidrawlib\` - Iconos de AWS Architecture
 - \`system-design.excalidrawlib\` - Iconos de System Design
+- \`architecture-diagram-components.excalidrawlib\` - Componentes de Diagramas de Arquitectura
 
 Para usarlas en Excalidraw:
 1. Abre Excalidraw
