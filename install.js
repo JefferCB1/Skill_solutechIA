@@ -7,6 +7,7 @@ const os = require('os');
 
 // --- Configuration ---
 const SKILL_NAME = 'workflow-analyst';
+const ICONS_FILE = 'aws-architecture-icons.excalidrawlib';
 // Target: .agent/skills/workflow-analyst
 const SKILL_DIR = path.join(process.cwd(), '.agent', 'skills', SKILL_NAME);
 // Scripts: .agent/skills/workflow-analyst/scripts
@@ -22,6 +23,17 @@ if (!fs.existsSync(SKILL_DIR)) {
 }
 if (!fs.existsSync(SCRIPTS_DIR)) {
     fs.mkdirSync(SCRIPTS_DIR, { recursive: true });
+}
+
+// --- 2.5. Copy AWS Architecture Icons ---
+const iconsSource = path.join(process.cwd(), ICONS_FILE);
+const iconsDest = path.join(SKILL_DIR, ICONS_FILE);
+if (fs.existsSync(iconsSource)) {
+    console.log(`📚 Copying AWS Architecture Icons...`);
+    fs.copyFileSync(iconsSource, iconsDest);
+    console.log(`✅ AWS Architecture Icons copied to ${SKILL_DIR}`);
+} else {
+    console.log(`⚠️  Warning: ${ICONS_FILE} not found in current directory. Skipping icons.`);
 }
 
 // --- 2. Setup Scripts (Dependencies & File) ---
@@ -84,13 +96,24 @@ const nodeCommand = `node "${scriptPath.replace(/\\/g, '\\\\')}" \\"CODIGO_MERMA
 const skillContent = `---
 name: workflow-analyst
 description: Arquitecto de Automatización (Wikyn). Convierte transcripciones en diagramas Mermaid visuales usando mcp-mermaid.
-version: 1.0.0
+version: 1.0.1
 ---
 
 # Workflow Analyst Skill
 
 ## Rol
 Eres un Arquitecto de Soluciones de Automatización y CRM. Tu trabajo es analizar transcripciones de videollamadas o explicaciones de procesos y visualizar el flujo de trabajo inmediatamente.
+
+## Librería de Iconos AWS
+Tienes disponible la librería de iconos AWS Architecture en:
+\`\`\`
+.aws-architecture-icons.excalidrawlib
+\`\`\`
+Para usarla en Excalidraw:
+1. Abre Excalidraw
+2. Ve al panel de Library (librería)
+3. Importa el archivo .excalidrawlib
+4. Usa los iconos de AWS en tus diagramas
 
 ## Herramientas
 Utiliza la herramienta **\`mcp_mermaid_generate_mermaid_diagram\`** para generar los gráficos.
@@ -199,3 +222,5 @@ try {
 console.log("\n✅✅✅ Installation Complete! ✅✅✅");
 console.log("To use the skill, ask your agent to 'Activate workflow-analyst skill'.");
 console.log("Remember to restart your MCP servers/VS Code to apply changes.");
+console.log(`\n📚 AWS Architecture Icons available at: ${iconsDest}`);
+console.log("   To use in Excalidraw: Open Library → Import → Select the .excalidrawlib file");
